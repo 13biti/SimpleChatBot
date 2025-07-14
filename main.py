@@ -3,9 +3,12 @@ from nltk.stem.lancaster import LancasterStemmer
 
 stemmer = LancasterStemmer()
 import numpy as np
-import tensorflow
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Input
+from tensorflow.keras.optimizers import Adam
+import numpy as np
 import json
-import random
 
 # this 3 are our vocab - token map - array of labels
 words: list[str] = []
@@ -48,21 +51,19 @@ for index, item in enumerate(docs_query):
             training_input[index][words.index(w)] = 1
     training_output[index][labels.index(docs_label[index])] = 1
 # bag of word is working
-"""
-x = 1
-print(
-    "query ",
-    docs_query[x],
-    " tag : ",
-    docs_label[x],
-    "tag index ",
-    labels.index(docs_label[x]),
+tf.keras.backend.clear_session()
+
+model = Sequential(
+    [
+        Input(shape=(training_input.shape[1],)),
+        Dense(8, activation="relu"),
+        Dense(8, activation="relu"),
+        Dense(training_output.shape[1], activation="softmax"),
+    ]
 )
-print(training_input[x])
-print(training_output[x])
-counter = 0
-for i in training_input[x]:
-    if i == 1:
-        print(words[counter])
-    counter += 1
-    """
+
+model.compile(optimizer=Adam(), loss="categorical_crossentropy", metrics=["accuracy"])
+
+model.fit(training_input, training_output, epochs=1000, batch_size=8, verbose=1)
+
+model.save("model.h5")
