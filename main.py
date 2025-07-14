@@ -16,3 +16,53 @@ docs_query: list[list[str]] = []
 docs_label: list[str] = []
 
 # reading data from json file , tokenize it and create input and label for output
+with open("./intents.json") as f:
+    data = json.load(f)
+for intent in data["intents"]:
+    for pattern in intent["patterns"]:
+        pattern = (
+            pattern.replace(",", "")
+            .replace("!", "")
+            .replace("?", "")
+            .replace("(", "")
+            .replace(")", "")
+            .replace(":", "")
+        )
+        stemmed_pattern = [stemmer.stem(w.lower()) for w in pattern.split(" ")]
+        for word in stemmed_pattern:
+            if word not in token_map.keys():
+                token_map[word] = len(token_map) + 3
+                words.append(word)
+        docs_query.append(stemmed_pattern)
+        docs_label.append(intent["tag"])
+
+labels = sorted(list(set(docs_label)))
+words = sorted(words)
+token_map = {"<START>": 0, "<PAD>": 1, "<UNKNOWN>": 2, **token_map}
+training_input = np.zeros((len(docs_query), len(words)))
+training_output = np.zeros((len(docs_query), len(labels)))
+for index, item in enumerate(docs_query):
+    for w in item:
+        # i know for fact that they are , but check if so if in future change previos code , this remain the same
+        if w in words:
+            training_input[index][words.index(w)] = 1
+    training_output[index][labels.index(docs_label[index])] = 1
+# bag of word is working
+"""
+x = 1
+print(
+    "query ",
+    docs_query[x],
+    " tag : ",
+    docs_label[x],
+    "tag index ",
+    labels.index(docs_label[x]),
+)
+print(training_input[x])
+print(training_output[x])
+counter = 0
+for i in training_input[x]:
+    if i == 1:
+        print(words[counter])
+    counter += 1
+    """
