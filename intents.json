@@ -1,0 +1,251 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hello! :)) Thanks for stopping by—how can I assist you today?",
+        "Hi there, it’s great to see you! What brings you in?",
+        "Good day! Ready when you are—just let me know how I can help."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye", "Talk to you soon"],
+      "responses": [
+        "Catch you next time—have a wonderful day! 🌞",
+        "Goodbye for now! Feel free to drop by anytime.",
+        "See you later! Looking forward to our next chat."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Much appreciated", "Thanks a lot"],
+      "responses": [
+        "You're very welcome! 😊",
+        "My pleasure! Always happy to help.",
+        "Anytime—you’ve got me on your side!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "Can you help me?",
+        "I need assistance",
+        "Help please",
+        "Support"
+      ],
+      "responses": [
+        "Absolutely, I'm here for you! What do you need help with?",
+        "Sure thing—just let me know how I can assist.",
+        "I'd be glad to support you. Could you tell me more about the issue?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What's the weather like?",
+        "Is it sunny today?",
+        "Do I need an umbrella?",
+        "Forecast please"
+      ],
+      "responses": [
+        "I can't give live forecasts, but you can check your local weather app.",
+        "Try checking an online weather service for current conditions.",
+        "Weather info coming right up—just kidding, I can't access live data!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "name_query",
+      "patterns": [
+        "What's your name?",
+        "Who are you?",
+        "What do I call you?",
+        "Your name?"
+      ],
+      "responses": [
+        "I'm your friendly chatbot!",
+        "You can call me ChatMate.",
+        "Just your virtual assistant here!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "joke",
+      "patterns": [
+        "Tell me a joke",
+        "Make me laugh",
+        "Do you know any jokes?",
+        "Cheer me up"
+      ],
+      "responses": [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "I tried to catch fog yesterday… Mist!",
+        "Parallel lines have so much in common… it’s a shame they’ll never meet."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "appointment",
+      "patterns": [
+        "I want to book an appointment",
+        "Schedule a meeting",
+        "Can I make a reservation?",
+        "Set up a time"
+      ],
+      "responses": [
+        "Sure, I can help with that. What date and time are you thinking?",
+        "Let's get that appointment booked. Please share the details.",
+        "Scheduling made easy—just tell me when!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "location_query",
+      "patterns": [
+        "Where are you located?",
+        "Your address?",
+        "Where can I find you?",
+        "Location please"
+      ],
+      "responses": [
+        "We’re based online—accessible from anywhere you’ve got a signal ",
+        "Your mamys house",
+        "Great question! Our platform is entirely virtual and worldwide.",
+        "Just like your Wi-Fi—we’re everywhere! 🌐"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hours",
+      "patterns": [
+        "What are your working hours?",
+        "When are you open?",
+        "Office hours?",
+        "When do you close?"
+      ],
+      "responses": [
+        "Our team is available from 9 AM to 5 PM, Monday to Friday.",
+        "We’re here to help during standard business hours.",
+        "Reach out to us any time between 9 and 5 on weekdays."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "payment",
+      "patterns": [
+        "How do I pay?",
+        "Payment options?",
+        "Can I use credit card?",
+        "Is PayPal accepted?"
+      ],
+      "responses": [
+        "We accept all major payment methods, including credit card and PayPal.",
+        "You can pay securely using a variety of options.",
+        "Credit card, PayPal, and more—we've got you covered."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "refund_policy",
+      "patterns": [
+        "Can I get a refund?",
+        "Refund policy?",
+        "I want to return something",
+        "How do refunds work?"
+      ],
+      "responses": [
+        "Sure, we offer a 30-day refund policy on most products.",
+        "Refunds are processed within 5–7 business days after approval.",
+        "Yes, you can request a refund. Let’s walk through the steps together."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "technical_issue",
+      "patterns": [
+        "Something isn’t working",
+        "I’m having a technical problem",
+        "App is crashing",
+        "Issue with the website"
+      ],
+      "responses": [
+        "I'm sorry to hear that! Let's troubleshoot together.",
+        "Let's get this fixed—can you describe the issue?",
+        "We'll sort this out. Tell me what went wrong."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "product_query",
+      "patterns": [
+        "Tell me about your products",
+        "What do you sell?",
+        "Available items?",
+        "Product list please"
+      ],
+      "responses": [
+        "We offer a variety of products—what are you interested in?",
+        "Here’s a quick overview of what we sell...",
+        "Great question! I’ll pull up our product categories."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "order_status",
+      "patterns": [
+        "Where's my order?",
+        "Order tracking",
+        "Has my package shipped?",
+        "Order update please"
+      ],
+      "responses": [
+        "You can track your order using the tracking number sent to your email.",
+        "Let me check the status—can you share your order ID?",
+        "We'll find your package in no time. Got your tracking info handy?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "feedback",
+      "patterns": [
+        "I have feedback",
+        "Here’s my suggestion",
+        "Can I give a review?",
+        "Your service was great"
+      ],
+      "responses": [
+        "We love feedback—thanks for sharing!",
+        "Feel free to tell us what you think.",
+        "Your suggestions make us better. Fire away!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "fun_fact",
+      "patterns": [
+        "Tell me a fun fact",
+        "Surprise me with trivia",
+        "Give me something random",
+        "Interesting fact please"
+      ],
+      "responses": [
+        "Did you know? Honey never spoils. Archaeologists have found pots of it in ancient tombs!",
+        "Octopuses have three hearts—two pump blood to the gills, one to the rest of the body.",
+        "Bananas are berries, but strawberries aren't. Wild, right?"
+      ],
+      "context_set": ""
+    }
+  ]
+}
