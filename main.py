@@ -120,14 +120,18 @@ def interact_with_user():
             break
         tokenize_user_input = preprocessor.tokenize_user_input(user_input)
         predict_result = model.predict(tokenize_user_input)
-        predict_result = np.argmax(predict_result)
-        predict_result = preprocessor.get_lable(predict_result)
-        with open("./intents.json") as f:
-            data = json.load(f)
-        for item in data["intents"]:
-            if item["tag"] == predict_result:
-                answer = random.choice(item["responses"])
-                print("assistanse:", answer)
+        predict_result_index = np.argmax(predict_result)
+        predict_result_label = preprocessor.get_lable(predict_result_index)
+        print(predict_result)
+        if predict_result[0][predict_result_index] < 0.8:
+            print("i dont know ")
+        else:
+            with open("./intents.json") as f:
+                data = json.load(f)
+            for item in data["intents"]:
+                if item["tag"] == predict_result_label:
+                    answer = random.choice(item["responses"])
+                    print("assistanse:", answer)
 
 
 interact_with_user()
